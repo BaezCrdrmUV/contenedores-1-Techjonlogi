@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Practica_Docker": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
