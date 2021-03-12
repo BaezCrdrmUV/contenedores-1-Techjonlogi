@@ -18,6 +18,7 @@
 --
 -- Table structure for table `Direccion`
 --
+USE Persona;
 
 DROP TABLE IF EXISTS `Direccion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

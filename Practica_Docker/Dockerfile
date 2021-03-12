@@ -2,13 +2,15 @@
 
 FROM mcr.microsoft.com/dotnet/core/runtime:3.1-buster-slim AS base
 WORKDIR /app
+EXPOSE 80
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["Practica_Docker/Practica_Docker.csproj", "Practica_Docker/"]
-RUN dotnet restore "Practica_Docker/Practica_Docker.csproj"
+COPY ["Practica_Docker.csproj", "./"]
+RUN dotnet restore "Practica_Docker.csproj"
 COPY . .
-WORKDIR "/src/Practica_Docker"
+WORKDIR "/src/"
 RUN dotnet build "Practica_Docker.csproj" -c Release -o /app/build
 
 FROM build AS publish
@@ -17,4 +19,3 @@ RUN dotnet publish "Practica_Docker.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Practica_Docker.dll"]

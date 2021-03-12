@@ -11,7 +11,7 @@ namespace Practica_Docker
         private string connectionString;
 
         public ConnectionHandle() {
-            connectionString = "server=localhost;port=33061;user=root;password=secret;database=Persona";
+            connectionString = "server=192.168.100.32;port=33061;user=admin;password=admin;database=Persona";
             connection = new MySqlConnection(connectionString);
         }
 
